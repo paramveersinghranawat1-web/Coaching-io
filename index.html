@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+</head>
+<body data-aos="fade-up">
+
+<section>
+    <div class="container">
+        <div id="display"></div>
+        <div class="buttons">
+            <div class="button" onclick="clearDisplay()">C</div>
+            <div class="button" onclick="backspace()">←</div>
+            <div class="button" onclick="appendToDisplay('/')">/</div>
+            <div class="button" onclick="appendToDisplay('*')">*</div>
+
+            <div class="button" onclick="appendToDisplay('7')">7</div>
+            <div class="button" onclick="appendToDisplay('8')">8</div>
+            <div class="button" onclick="appendToDisplay('9')">9</div>
+            <div class="button" onclick="appendToDisplay('-')">-</div>
+
+            <div class="button" onclick="appendToDisplay('4')">4</div>
+            <div class="button" onclick="appendToDisplay('5')">5</div>
+            <div class="button" onclick="appendToDisplay('6')">6</div>
+            <div class="button" onclick="appendToDisplay('+')">+</div>
+
+            <div class="button" onclick="appendToDisplay('1')">1</div>
+            <div class="button" onclick="appendToDisplay('2')">2</div>
+            <div class="button" onclick="appendToDisplay('3')">3</div>
+            <div class="button equal-sign" onclick="calculateResult()">=</div>
+
+            <div class="button" onclick="appendToDisplay('0')">0</div>
+        </div>
+    </div>
+</section>
+
+<script >
+    let display = document.getElementById('display');
+
+function appendToDisplay(value) {
+    display.innerText += value;
+}
+
+function clearDisplay() {
+    display.innerText = '';
+}
+
+function backspace() {
+    display.innerText = display.innerText.slice(0, -1);
+}
+
+function calculateResult() {
+    try {
+        display.innerText = eval(display.innerText);
+    } catch (error) {
+        display.innerText = "Error";
+    }
+}
+</script>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
+
+
